@@ -1,0 +1,9 @@
+.bordered{
+    /* border: 1px solid black; */
+    background-color: #cccccc
+    
+}
+
+.fixed-width{
+    width: 150px
+}

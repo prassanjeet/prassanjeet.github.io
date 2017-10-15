@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../../css/bootstrap.css">
+    <link rel="stylesheet" href="../../css/jquery-ui.css">
+    <link rel="stylesheet" href="../../css/custom.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav></nav>
+    <div class="container" id="outerDivForActual">
+        <br>
+        <div style="margin: 5px">
+            <input type="button" onclick="duplicateForm()" class="btn" value="Add Line">
+            <input type="button" onclick="addNewStep()" class="btn" value="Add New Step">
+            <input type="button" onclick="readActuals()" class="btn" value="Read">
+            <input type="button" onclick="downloadCSV()" class="btn" value="Write">            
+        </div>
+        <div class="row bordered" id="LineItem" name="LineItem" style="display:none" draggable="true">
+            <div class="col-md-12 container">
+                <form id="Form" action="">
+                        
+                    <label for="Option1" id="operationLabel" class="small hidden-xs">Operation: </label>
+                    <select name="Option1" id="Operation" onchange="fillSelect(this,this.form['Option2'])" class="input-md fixed-width">
+                        <option selected value="Operation">Select Operation</option>
+                    </select>
+                    <label for="Option2" id="fieldLabel"class="small hidden-xs">Field: </label>
+                    <select name="Option2" id="Field" onchange="inputTypeChanger(this)" class="input-md fixed-width">
+                        <option selected value="Field">Select Field</option>
+                    </select>
+                    
+                    <input name="Option3" id="Value" type="text" class="input-md">
+                    
+                    <input type="checkbox" name="Option4" id="isVariable" class="input-md">
+                    <label for="Option4" id="isVariableLabel" class="small"><span class="hidden-xs hidden-sm">Is Variable</span><span class="visible-xs visible-sm">Var</span></label>     
+                    
+                    <input type="checkbox" name="Option5" id="isExpected" class="input-md">
+                    <label for="Option5" id="isExpectedLabel" class="small"><span class="hidden-xs hidden-sm">Is Expected</span><span class="visible-xs visible-sm">Expected?</span></label>     
+                    
+                    <input type="button" name="DestroyButton" id="destroy" onclick="destroy(this)" class="btn" value="-">
+                    <input type="button" name="InsertAboveButton" id="insertAbove" onclick="duplicateFormAbove(this)" class="btn" value="A">
+                    <input type="button" name="InsertBelowButton" id="insertBelow" onclick="duplicateFormBelow(this)" class="btn" value="V">
+                    <input type="button" name="MoveAboveButton" id="moveAbove" onclick="moveFormAbove(this.parentNode.parentNode.parentNode)" class="btn" value="Up">
+                    <input type="button" name="MoveBelowButton" id="moveBelow" onclick="moveFormBelow(this.parentNode.parentNode.parentNode)" class="btn" value="Down">
+                    
+                </form>
+            </div>
+            
+        </div>
+        
+    </div> <!-- outerDivForActual -->
+
+    <div class="container" id="outerDivForOutput">
+
+    </div> <!-- outerDivForOutput -->
+    <div class="container" id="outerDivForCSV">
+            
+    </div> <!-- outerDivForCSV -->
+    <script src="../../js/jquery-3.2.1.js"></script>
+    <script src="../../js/jquery-ui.js"></script>
+    <script src="../../js/dynamicFormLibrary.js"></script>
+    
+</body>
+</html>
